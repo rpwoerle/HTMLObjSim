@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>HTML Objekt Simulation</title>
+</head>
+
+<body>
+  <script type="text/javascript" src="main.js"></script>
+
+  <!-- styles - CAUTION: mebis HTML editor will remove styles when loading content!
+                         after copying to HTML view in mebis editor save w/o switching back to normal view -->
+  
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- the displayed document starts here -->
+  HTML Dokument:
+  <div id="workFrame" style="border: 1px solid; border-color: darkgrey;">
+    <table id="Tabelle1">
+      <tbody>
+        <tr>
+          <td>
+            <div class="boxed">
+              <b>ID: Ueberschrift&#8628;</b>
+              <h2 id="Ueberschrift" onclick="alert('Überschrift angeklickt')" style="cursor: pointer; margin-top: 0px;">
+                Programmierdemo für Dokumente</h2>
+            </div>
+          </td>
+          <td class="tipp">Tipp: klick mich!</td>
+        </tr>
+        <tr>
+          <td colspan="2">Hier kannst Du den Objektaufbau des Dokuments
+            untersuchen und manipulieren. Mit einem Klick auf "Hinweise ein-/ausblenden"
+            unten kannst Du weiteren Informationen zu den Objektnamen (genauer ihre IDs) und Tipps
+            erhalten.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>ID: Absatz1&#8628;</b>
+            <div id="Absatz1" class="boxed">
+              <span id="Absatz1.Satz1">Um die Attribute des Textes zu sehen, zu ändern, oder Methoden aufzurufen, musst
+                Du die <span class="tipplink" onclick="toggleExtraTipp('Absatz1.Satz1.Extratipp1')"> Punktnotation </span>
+                <span id="Absatz1.Satz1.Extratipp1" class="extratipp">&lt;Objekt&gt;.&lt; Attribut&gt; =
+                  &lt;Attributwert&gt; oder
+                  &lt;Objekt&gt;.&lt;Methode&gt;() </span> verwenden.
+                <span id="Absatz1.Satz2">Andere Attribute und Methoden lassen sich direkt über das Objekt
+                  erreichen.</span> Z.B.:
+                <ol id="Absatz1.Liste1">
+                  <li id="Absatz1.Liste1.Element1">Attribut "id"</li>
+                  <li id="Absatz1.Liste1.Element2">Attribut "innerText"</li>
+                  <li id="Absatz1.Liste1.Element3">Methode "click()"</li>
+                </ol>
+                <span id="Absatz1.Satz3">Die Formatierungen in modernem HTML 5 sind in dem Unterobjekt "style" als
+                  Attribute zusammengefasst.</span>
+              </span></div>
+          </td>
+          <td class="tipp">Tipps:
+            <ul>
+              <li>Klicke auf das Wort "Punktnotation", um einen Extratipp (ID: "Extratipp1") anzuzeigen.</li>
+              <li>Du kannst hier jeden einzelnen Satz mit dem jeweiligen Unterobjekt "SatzX" (X für die Nummer des
+                Satzes) manipulieren.</li>
+              <li>Die Liste hat die (Unter-)ID "Liste1" und die Listenelemente die (Unter-)IDs "ElementX" (X Nummer des
+                Listeneintrags).</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b>ID: Absatz2&#8628;</b>
+            <div id="Absatz2" class="boxed">
+              <div id="Absatz2.Satz1">
+                <span id="Absatz2.Satz1.Wort1">Einige</span> <span id="Absatz2.Satz1.Wort2">der</span> <span
+                  id="Absatz2.Satz1.Wort3">wichtigsten</span>
+                <span id="Absatz2.Satz1.Wort4">"style"</span> <span id="Absatz2.Satz1.Wort5">Attribute</span> <span
+                  id="Absatz2.Satz1.Wort6">sowie</span> <span id="Absatz2.Satz1.Wort7">weitere</span>
+                <span id="Absatz2.Satz1.Wort8">Attribute</span> <span id="Absatz2.Satz1.Wort9">und</span> <span
+                  id="Absatz2.Satz1.Wort10">Methoden</span>,
+                <span id="Absatz2.Satz1.Wort11">die</span> <span id="Absatz2.Satz1.Wort12">Du</span> <span
+                  id="Absatz2.Satz1.Wort13">auspobieren</span> <span id="Absatz2.Satz1.Wort14">kannst</span>,
+                <span id="Absatz2.Satz1.Wort15">sind</span> <a target="_blank"
+                  href="https://lernplattform.mebis.bayern.de/mod/page/view.php?id=12002515">
+                  <span id="Absatz2.Satz1.Wort16">hier</span> <span id="Absatz2.Satz1.Wort17">aufgelistet</span></a>.
+              </div>
+            </div>
+          </td>
+          <td class="tipp">Tipp: Du kannst hier jedes einzelne Wort mit dem jeweiligen Unterobjekt "WortX"
+            (X für die Nummer des Wortes) manipulieren. ACHTUNG: Worte sind Teile eines Satzes (hier "Satz1") und
+            dieser Teil des entsprechenden Absatzes</td>
+        </tr>
+        <tr>
+          <td>
+            <b>ID: Absatz3&#8628;</b>
+            <div id="Absatz3" class="boxed" style="height: 100px; position: relative;">
+              <a href="https://wiki.selfhtml.org/wiki/Wie_fange_ich_an%3F" target="_blank">
+                <img style="float: right; height: 80px;" id="Absatz3.Bild1"
+                  src="https://wiki.selfhtml.org/skins/Selfhtml/images/selfhtml-q-logo-160-wiki.svg?06325">
+              </a>
+              <span id="Absatz3.Satz1">
+                Die Änderungen der HTML Objekte erfolgt durch die Web-Programmiersprache JavaScript.</span> 
+              <span id="Absatz3.Satz2">
+                Wenn Du noch mehr über HTML und JavaScript lernen möchtest, empfehle ich einen Besuch bei
+                <a href="https://wiki.selfhtml.org/wiki/Wie_fange_ich_an%3F" target="_blank">selfhtml.org</a>,
+                dort findest eine gute Einführung und einen guten Überblick.</span>
+            </div>
+          </td>
+          <td class="tipp">Tipp: Das Bild ist ein Unterobjekt mit der ID "Bild1" </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <button class="btn btn-secondary" style="margin-top: 5px" onclick="toggleTipps()">Hinweise ein-/ausblenden!</button>
+  <button class="btn btn-secondary" style="margin-top: 5px; float: right" onclick="reInit()">Zurücksetzen</button>
+  <p></p>
+  Befehlseingabe:<br>
+  <textarea style="width: 100%; border: 1px solid; border-color: darkgrey;" rows="4" id="jsinput"></textarea> <br>
+  <button class="btn btn-primary" style="margin-top: 5px" onclick="runCmd()">Los!</button>
+  <span style="margin-top: 5px; padding: 5px 10px 5px 10px; border: 1px solid; border-color: darkgrey; float: right"
+    id="results">Wenn ein Befehl mit einem ? beginnt, wird hier das Ergebnis ausgegeben (sofern vorhanden).</span>
+
+
+</body>
+
+</html>

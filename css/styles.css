@@ -1,0 +1,32 @@
+h1 {
+    color: orange;
+  }
+
+  td {
+    padding: 5px 3px;
+  }
+
+  .tipp {
+    color: black;
+    margin-top: 15px;
+    font: 12px arial;
+    display: none;
+  }
+
+  .extratipp {
+    color: black;
+    font: 12px courier;
+    display: none;
+  }
+
+  .boxed {
+    border: solid 1px lightgrey;
+    padding: 3px;
+  }
+
+  .tipplink {
+    cursor: pointer;
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+    font-style: italic;
+  }
