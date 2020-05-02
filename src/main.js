@@ -138,12 +138,12 @@ function unQuote(str) {
 }
 
 // button event callbacks
-function toggleTipps() {
-  var objArr = document.getElementsByClassName("tipp")
-  if (objArr[0].style.display == "none" || !objArr[0].style.display)
-    Array.from(objArr).forEach(function (item) { item.style.display = "block"; }); // alternative: [].slice.call(htmlCollection)
+function toggleTips() {
+  var objArr = document.getElementsByClassName("tooltip")
+  if (objArr[0].style.display == "inline" || !objArr[0].style.display)
+    Array.from(objArr).forEach(function (item) { item.style.display = "none"; }); // alternative: [].slice.call(htmlCollection)
   else
-    Array.from(objArr).forEach(function (item) { item.style.display = "none"; });
+    Array.from(objArr).forEach(function (item) { item.style.display = "inline"; });
 }
 
 function toggleExtraTipp(src) {
