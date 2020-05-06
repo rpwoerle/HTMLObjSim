@@ -3,6 +3,13 @@ var initFrame;
 document.addEventListener("DOMContentLoaded", function (event) {
   console.log("DOM fully loaded and parsed");
   initFrame = document.getElementById("workFrame").innerHTML;
+
+  document.getElementById("jsinput").addEventListener("keyup", function(e) {
+    if (e.ctrlKey && e.key == "Enter") {
+      e.stopPropagation();
+      runCmd();
+    }
+  });
 });
 
 function init() {
@@ -28,7 +35,7 @@ function runCmd() {
     }
     console.log("Current input = " + item);
 
-    var regex = String.fromCharCode(0x5c) + "(.*" + String.fromCharCode(0x5c) + ")";  // escape for mebis misbehavior on backslash!
+    var regex = String.fromCharCode(0x5c) + "(.*" + String.fromCharCode(0x5c) + ")";  // escape \ for mebis misbehavior on backslash!
     console.log("regex = " + regex);
     var args = item.match(new RegExp(regex));                 // find any arguments in brackets
     if (args) {
@@ -65,6 +72,32 @@ function runCmd() {
         console.log("Attribute = " + elem);
     }
 
+    if (!document.getElementById(obj)) {                      // if obj doesn't exist,
+      var arrObj = obj.split("."); 
+      if (arrObj[arrObj.length - 1].startsWith("Wort")) {     // if last (sub-)obj is a word
+        var idx = arrObj.pop().substr(4) - 1;                 // get the index of the word
+        var parentNode = document.getElementById(arrObj.join("."));
+        if (!parentNode) {                                    // return if parent doesn't exist
+          alert("Fehler: Objekt existiert nicht: " + obj);
+          return;
+        }
+        var arr = [];                                         // split text by word or HTML Tag
+        for (var i = 0, children = parentNode.childNodes; i < children.length; i++) {
+          if (children[i].nodeType === 3) {                   // if just text, store in array
+            arr = arr.concat(children[i].nodeValue.trim().split(/\s+/));
+          } else {
+            arr.push(children[i].outerHTML);                  // if HTML Tag, store the whole tag
+          }
+        }
+        if (arr[idx].match(/>.+</)) {                         // add a span tag with id WORTx to the text
+          arr[idx] = arr[idx].replace(/>(.+?)</, "><span id='" + obj + "'>$1</span><");
+        } else {
+          arr[idx] = "<span id='" + obj + "'>" + arr[idx] + "</span>";
+        }
+        parentNode.innerHTML = arr.join(" ");
+      }
+    }
+
     var jsObj = document.getElementById(obj);
     switch (elem) {                                           // special methods
       case ".addAttribute":
@@ -96,10 +129,10 @@ function runCmd() {
 
 
     if (showRes) {
-      var retry = false;                                     // display any results
+      var retry = false;                                    // display any results
       var evalCmd = "document.getElementById('results').innerHTML = " +
         "document.getElementById('" + obj + "')" + cmd;
-      try {                                               // first try
+      try {                                                 // first try
         eval(evalCmd);
       } catch (err) {
         console.log("Error = " + err);
@@ -146,7 +179,7 @@ function toggleTips() {
     Array.from(objArr).forEach(function (item) { item.style.display = "inline"; });
 }
 
-function toggleExtraTipp(src) {
+function toggleExtraTip(src) {
   src = document.getElementById(src);
   if (src.style.display == "none" || src.style.display == "")
     src.style.display = "inline";
