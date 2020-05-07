@@ -10,16 +10,16 @@
       <i><span class="" style="font-size: medium;">Achtung: die spitzen Klammern
           &lt;&gt; unten sind nur Platzhalter, nicht mit abschreiben.</span></i></p>
     <p><span class="" style="font-size: medium;">Du kannst die ID (Namen) der
-        meisten Objekte sehen, wenn Du mit der Maus über die Hinweismarkierung
-        <b> ☄</b> fährst. Zusätzlich kannst Du jedes Wort in den Absätze, Listen
+        meisten Objekte sehen, wenn Du mit der Maus über die Hinweismarkierung <b>
+          ☄</b> fährst. Zusätzlich kannst Du jedes Wort in den Absätze, Listen
         und Tabellen mit der ID 'WortN' adressieren, wobei N das n-te Wort
         bedeutet (Siehe Bespiele ganz unten). Einzelne Buchstaben lassen sich
         nicht ändern.</span><br>
     </p>
     <h3>Methoden:</h3>
     <ul>
-      <li><b>addElement("&lt;li&gt;", ["&lt;id&gt;"]) (nur Listen):</b> Fügt
-        einen Text als Element der Liste hinzu. &lt;li&gt; ist eine
+      <li><b>addListelement("&lt;text&gt;", ["&lt;id&gt;"]) (nur bei Listen):</b>
+        Fügt einen Text als Eintrag der Liste hinzu. &lt;text&gt; ist eine
         Zeichenkette. Wenn &lt;id&gt; angegeben wird, erhält das neue Element
         diese Zeichenkette als ID.</li>
       <li><b>remove():</b> entfernt das Objekt.</li>
@@ -32,7 +32,7 @@
       <li><b>id</b>: Der Name (genauer ID) des Objekts.</li>
       <li><b>style</b>: Unterobjekt, das die Formatierung des Objekts enthält
         (siehe unten).</li>
-      <li><b>innerText</b>: Der Text des Objekts, wenn vorhanden (z.B. nicht bei
+      <li><b>text</b>: Der Text des Objekts, wenn vorhanden (z.B. nicht bei
         Bildern)</li>
       <li><b>type (für nummerierte Listen)</b>: Art der Aufzählung (z.B. "1",
         "a", "A", "i", "I")</li>
@@ -70,8 +70,9 @@
         durchsichtig bis 1.0 - undurchsichtig)</li>
       <li><b>text-align:</b> Ausrichtung des Textes (z.B. "left", "right",
         "center" oder "justify")</li>
-      <li><b>height</b>: Höhe des Objekts (z.B. "Xpx")</li>
-      <li><b>width</b>: Breite des Objekts (z.B. "Xpx")</li>
+      <li><b>height</b>: Höhe des Objekts (z.B. "Xpx", nicht bei Worten, siehe
+        fontSize oben)</li>
+      <li><b>width</b>: Breite des Objekts (z.B. "Xpx", nicht bei Worten)</li>
     </ul>
     <h3>WICHTIG:</h3>
     <ul>
@@ -90,12 +91,10 @@
           wieder zurücksetzen. Abfragen lassen sich die Attributwerte mit einem
           vorangestellten Fragezeichen "?".</b></li>
       <li><b>Um eine Zeile vorübergehend nicht ausführen zu lassen, kannst Du
-          sie "auskommentieren" - einfach an den Anfang der Zeile zwei //<span class=""
-
+          sie "auskommentieren" - einfach an den Anfang der Zeile zwei //<span class=""
             style="font-family: Courier New, Courier, mono;"></span> stellen. </b></li>
       <b> </b>
-      <li><b>Du findest die Namen der Farben hier: <a href="https://wiki.selfhtml.org/wiki/Grafik/Farbpaletten"
-
+      <li><b>Du findest die Namen der Farben hier: <a href="https://wiki.selfhtml.org/wiki/Grafik/Farbpaletten"
             target="_blank">https://wiki.selfhtml.org/wiki/Grafik/Farbpaletten</a>
           (nicht von den vielen Zahlen irritieren lassen, einfach die Englischen
           Namen verwenden)</b></li>
@@ -109,8 +108,7 @@
         in rot</li>
       <li><span style="font-family: Courier New,Courier,monospace;">?Absatz2.Wort1.style.fontFamily</span>:
         ruft das Attribut <span style="font-family: Courier New,Courier,monospace;">fontFamily</span>
-        (Schriftart)<span style="font-family: Courier New,Courier,monospace;"><span
-
+        (Schriftart)<span style="font-family: Courier New,Courier,monospace;"><span
             style="font-family: serif;"> </span></span>des Objekts <span style="font-family: Courier New,Courier,monospace;">Absatz2.Wort1</span>
         ab und stellt es unter dem Befehlseingabefeld rechts dar.</li>
     </ul>
