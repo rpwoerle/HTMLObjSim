@@ -4,7 +4,7 @@ h1 {
 
 table, th, td {
   padding: 5px 3px;
-  border: 1px solid grey;
+  border: 1px dotted grey;
   border-collapse: collapse;
 }
 

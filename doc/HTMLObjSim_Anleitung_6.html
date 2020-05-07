@@ -2,16 +2,21 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>HTML Objekt Simulation</title>
+    <title>Text Objekte Simulation</title>
   </head>
   <body>
     <p>Die Objekte für die Textdokument Simulation kennen unter anderem folgende
       Methoden (Befehle) und Attribute (Eigenschaften): <br>
       <i><span class="" style="font-size: medium;">Achtung: die spitzen Klammern
-          &lt;&gt; unten sind nur Platzhalter, nicht mit abschreiben.</span></i>
-      <br>
+          &lt;&gt; unten sind nur Platzhalter, nicht mit abschreiben.</span></i></p>
+    <p><span class="" style="font-size: medium;">Du kannst die ID (Namen) der
+        meisten Objekte sehen, wenn Du mit der Maus über die Hinweismarkierung
+        <b> ☄</b> fährst. Zusätzlich kannst Du jedes Wort in den Absätze, Listen
+        und Tabellen mit der ID 'WortN' adressieren, wobei N das n-te Wort
+        bedeutet (Siehe Bespiele ganz unten). Einzelne Buchstaben lassen sich
+        nicht ändern.</span><br>
     </p>
-    <h4>Methoden:</h4>
+    <h3>Methoden:</h3>
     <ul>
       <li><b>addElement("&lt;li&gt;", ["&lt;id&gt;"]) (nur Listen):</b> Fügt
         einen Text als Element der Liste hinzu. &lt;li&gt; ist eine
@@ -22,7 +27,7 @@
         Vorkommen von &lt;search&gt; im Objekt durch &lt;replace&gt;.
         &lt;search&gt; und &lt;replace&gt; sind Zeichenketten. </li>
     </ul>
-    <h4>Attribute:</h4>
+    <h3>Attribute:</h3>
     <ul>
       <li><b>id</b>: Der Name (genauer ID) des Objekts.</li>
       <li><b>style</b>: Unterobjekt, das die Formatierung des Objekts enthält
@@ -32,7 +37,7 @@
       <li><b>type (für nummerierte Listen)</b>: Art der Aufzählung (z.B. "1",
         "a", "A", "i", "I")</li>
     </ul>
-    <h4>Style Attribute: (Attribute des Objekts "style")</h4>
+    <h3>Style Attribute: (Attribute des Objekts "style")</h3>
     <ul>
       <li><b>backgroundColor</b>: Farbe des Hintergrunds des Objekts</li>
       <li><b>borderStyle</b>: Art des Rahmens (z.B. "solid", "dashed", "double")</li>
@@ -55,8 +60,6 @@
       <li><b>textDecorationColor</b>: Farbe der Liniendekoration (z.B. "red")</li>
       <li><b>textDecorationStyle</b>: Art der Liniendekoration (z.B. "wavy",
         "double", "dotted", "dashed")</li>
-      <li><b>justifyContent</b>: Ausrichtung des Inhalts eines Objekts (z.B.
-        "flex-start" [linksbündig], "flex-end" [rechtsbündig], "center")</li>
       <li><b>letterSpacing</b>: Abstand zwischen den Buchstaben eines Textes
         (z.B. "Xpx" - X kann dabei eine positive oder negative Zahl sein)</li>
       <li><b>wordSpacing</b>: Abstand zwischen den Worten eines Textes (z.B.
@@ -70,7 +73,7 @@
       <li><b>height</b>: Höhe des Objekts (z.B. "Xpx")</li>
       <li><b>width</b>: Breite des Objekts (z.B. "Xpx")</li>
     </ul>
-    <h4>WICHTIG:</h4>
+    <h3>WICHTIG:</h3>
     <ul>
       <li><b>Groß- und Kleinschreibung müssen beachtet werden. Alle Objekte in
           diesem Dokument beginnen mit einem Großbuchstaben, alle Attribute und
@@ -87,15 +90,17 @@
           wieder zurücksetzen. Abfragen lassen sich die Attributwerte mit einem
           vorangestellten Fragezeichen "?".</b></li>
       <li><b>Um eine Zeile vorübergehend nicht ausführen zu lassen, kannst Du
-          sie "auskommentieren" - einfach an den Anfang der Zeile zwei //<span class=""
+          sie "auskommentieren" - einfach an den Anfang der Zeile zwei //<span class=""
+
             style="font-family: Courier New, Courier, mono;"></span> stellen. </b></li>
       <b> </b>
-      <li><b>Du findest die Namen der Farben hier: <a href="https://wiki.selfhtml.org/wiki/Grafik/Farbpaletten"
+      <li><b>Du findest die Namen der Farben hier: <a href="https://wiki.selfhtml.org/wiki/Grafik/Farbpaletten"
+
             target="_blank">https://wiki.selfhtml.org/wiki/Grafik/Farbpaletten</a>
           (nicht von den vielen Zahlen irritieren lassen, einfach die Englischen
           Namen verwenden)</b></li>
     </ul>
-    <h4>Beispiele (mögliche Befehlseingaben): </h4>
+    <h3>Beispiele (mögliche Befehlseingaben): </h3>
     <ul>
       <li style="font-weight: normal;"><span style="font-family: Courier New,Courier,monospace;">Absatz2.Wort4.style.color
           = "red"</span>: ändert das Attribut <span style="font-family: Courier New,Courier,monospace;">color</span>
@@ -104,7 +109,8 @@
         in rot</li>
       <li><span style="font-family: Courier New,Courier,monospace;">?Absatz2.Wort1.style.fontFamily</span>:
         ruft das Attribut <span style="font-family: Courier New,Courier,monospace;">fontFamily</span>
-        (Schriftart)<span style="font-family: Courier New,Courier,monospace;"><span
+        (Schriftart)<span style="font-family: Courier New,Courier,monospace;"><span
+
             style="font-family: serif;"> </span></span>des Objekts <span style="font-family: Courier New,Courier,monospace;">Absatz2.Wort1</span>
         ab und stellt es unter dem Befehlseingabefeld rechts dar.</li>
     </ul>

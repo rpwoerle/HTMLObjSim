@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Text Objekt Simulation - 6. Klasse</title>
+</head>
+
+<body>
+  <script type="text/javascript" src="main.js"></script>
+  <!-- use this for mebis: -->
+  <!-- <script type="text/javascript" src="https://schule.pieper-woerle.de/mebis/js/HTMLObjSim-6-1.0.js"> -->
+    
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- use this for mebis: -->
+  <!-- <link rel="stylesheet" href="https://schule.pieper-woerle.de/mebis/js/HTMLObjSim-6-1.0.css"> -->
+  
+  <!-- styles - CAUTION: mebis HTML editor will remove styles when loading content!
+                         after copying to HTML view in mebis editor save w/o switching back to normal view -->
+
+  <!-- the displayed document starts here -->
+
+  <div id="workFrame" class="boxed text">
+    <h1 id="Ueberschrift1">Künstliche Intelligenz
+      <span class="tooltip"><span class="tooltiptext" style="font-size: 16px">Ueberschrift1</span><span
+          style="font-size: 16px">&#9732;</span></span>
+    </h1>
+
+    <p id="Absatz1">Künstliche Intelligenz (KI) ist ein Teilgebiet der <b>Informatik, </b>welches sich mit der
+      <i>Automatisierung </i><i>intelligenten </i><i>Verhaltens </i>und dem <i>maschinellen </i><i>Lernen </i>befasst.
+      <span class="tooltip"><span class="tooltiptext">Absatz1</span>&#9732;</span></p>
+
+    <p id="Absatz2" class="boxed2">Im Allgemeinen bezeichnet künstliche Intelligenz den Versuch, bestimmte Lern- und
+      Entscheidungsfähigkeiten des Menschen nachzubilden, indem z. B. ein Computer so gebaut und
+      programmiert wird, dass er relativ eigenständig Erkenntnisse gewinnen und damit Probleme lösen kann.
+      <span class="tooltip"><span class="tooltiptext">Absatz2</span>&#9732;</span></p>
+
+    <ul id="Liste1">
+      <li id="Liste1.Eintrag1"><b><u>Starke </u></b><b><u>KI:</b></u> Darunter
+        versteht man Computersysteme, die auf Augenhöhe mit Menschen arbeiten
+        und diese bei schwierigen Aufgaben unterstützen oder selbständig übernehmen können.
+        <span class="tooltip"><span class="tooltiptext">Eintrag1</span>&#9732;</span>
+      </li>
+      <li id="Liste1.Eintrag2"><b><u>Schwache </u></b><b><u>KI:</b></u>
+        Computersysteme, die nur ganz bestimmte Anwendungsprobleme meistern können.
+        Z.B. Bilder oder Musik zu klassifizieren, Sprache in Text umzuwandeln.
+        <span class="tooltip"><span class="tooltiptext">Eintrag2</span>&#9732;</span>
+      </li>
+    </ul>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="tooltip"><span class="tooltiptext">Liste1</span>&#9732;</span>
+
+    <table id="Tabelle1" >
+      <tr id="Tabelle1.Zeile1">
+        <td id="Tabelle1.Zeile1.Spalte1" valign="top">Künstliche Intelligenz sollte nicht verwechselt werden mit
+          <i>sogenannter </i><i>nachgeahmter </i><i>Intelligenz,</i>
+          wobei durch festgelegte Algorithmen ein "intelligentes Verhalten" simuliert werden soll, etwa bei
+          Computergegnern in Computerspielen.<span class="tooltip"><span
+              class="tooltiptext">Spalte1</span>&#9732;</span>
+        </td>
+        <td id="Tabelle1.Zeile1.Spalte2" style="text-align: right">
+          <img id="Tabelle1.Zeile1.Spalte2.Bild"
+            src="https://pixabay.com/get/55e3dd414f52ab14f1dc8460da2932761d38d7e75b5579_640.jpg"
+            width="300px" /><span class="tooltip" style="font-size: 14px"><span class="tooltiptext">Bild</span>&#9732;</span>
+        </td>
+        <td>
+          <span class="tooltip"><span class="tooltiptext">Zeile1</span>&#9732;</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="source">Quelle: Wikipedia.de (Text angepasst), Lizenz: CC-BY-SA-3.0</span>
+          <span class="tooltip" style="float: right"><span class="tooltiptext">Spalte1</span>&#9732;</span>
+        </td>
+        <td>
+          <span class="source">Quelle: geralt, Pixabay.de, Lizenz: Pixabay</span>
+          <span class="tooltip" style="float: right"><span class="tooltiptext">Spalte2</span>&#9732;</span>
+        </td>
+      </tr>
+    </table>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="tooltip"><span class="tooltiptext">Tabelle1</span>&#9732;</span>
+  </div>
+
+  <button class="btn btn-secondary" style="margin-top: 5px" onclick="toggleTips()">Hinweislinks
+    ein-/ausblenden!</button>
+  <button class="btn btn-secondary" style="margin-top: 5px; float: right" onclick="reInit()">Zurücksetzen</button>
+  <p></p>
+  Befehlseingabe:<br>
+  <textarea style="width: 100%; border: 1px solid; border-color: darkgrey;" rows="4" id="jsinput"></textarea> <br>
+  <button class="btn btn-primary" style="margin-top: 5px" onclick="runCmd()">Los!</button>
+  <span style="margin-top: 5px; padding: 5px 10px 5px 10px; border: 1px solid; border-color: darkgrey; float: right"
+    id="results">Wenn ein Befehl mit einem ? beginnt, wird hier das Ergebnis ausgegeben (sofern vorhanden).</span>
+
+</body>
+
+</html>

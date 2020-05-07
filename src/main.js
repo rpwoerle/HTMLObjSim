@@ -75,7 +75,7 @@ function runCmd() {
     if (!document.getElementById(obj)) {                      // if obj doesn't exist,
       var arrObj = obj.split("."); 
       if (arrObj[arrObj.length - 1].startsWith("Wort")) {     // if last (sub-)obj is a word
-        var idx = arrObj.pop().substr(4) - 1;                 // get the index of the word
+        var idx = arrObj.pop().substr(4) - 1;                  // get the index of the word
         var parentNode = document.getElementById(arrObj.join("."));
         if (!parentNode) {                                    // return if parent doesn't exist
           alert("Fehler: Objekt existiert nicht: " + obj);
@@ -83,18 +83,24 @@ function runCmd() {
         }
         var arr = [];                                         // split text by word or HTML Tag
         for (var i = 0, children = parentNode.childNodes; i < children.length; i++) {
-          if (children[i].nodeType === 3) {                   // if just text, store in array
-            arr = arr.concat(children[i].nodeValue.trim().split(/\s+/));
+          if (children[i].nodeType === 3) {    
+            console.log("nodeValue(" + i + ") = " + children[i].nodeValue.trim());               // if just text, store in array
+            arr = arr.concat(children[i].nodeValue.split(/\s+/));
           } else {
             arr.push(children[i].outerHTML);                  // if HTML Tag, store the whole tag
           }
         }
-        if (arr[idx].match(/>.+</)) {                         // add a span tag with id WORTx to the text
-          arr[idx] = arr[idx].replace(/>(.+?)</, "><span id='" + obj + "'>$1</span><");
-        } else {
-          arr[idx] = "<span id='" + obj + "'>" + arr[idx] + "</span>";
+       var arrNew = [];
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] != "") arrNew.push(arr[i]);
         }
-        parentNode.innerHTML = arr.join(" ");
+
+        if (arrNew[idx].match(/>.+</)) {                         // add a span tag with id WORTx to the text
+          arrNew[idx] = arrNew[idx].replace(/>(.+?)</, "><span id='" + obj + "'>$1 </span><");
+        } else {
+          arrNew[idx] = "<span id='" + obj + "'>" + arrNew[idx] + "</span> ";
+        }
+         parentNode.innerHTML = arrNew.join(" ");
       }
     }
 
@@ -103,7 +109,7 @@ function runCmd() {
       case ".addAttribute":
         jsObj.setAttribute(argsArr[0], argsArr[1]);
         return;
-      case ".addElement":
+      case ".addListElement":
         var li = document.createElement("li");
         li.appendChild(document.createTextNode(argsArr[0]));
         if (argsArr[1]) {
@@ -115,6 +121,8 @@ function runCmd() {
         var txt = jsObj.innerHTML;
         jsObj.innerHTML = txt.replace(new RegExp(argsArr[0], "g"), argsArr[1]);
         return;
+      case ".text":
+        elem = ".innerText";
     }
 
     if (attrval) {                                          // now create the command
@@ -133,6 +141,7 @@ function runCmd() {
       var evalCmd = "document.getElementById('results').innerHTML = " +
         "document.getElementById('" + obj + "')" + cmd;
       try {                                                 // first try
+        console.log("evalCmd = " + evalCmd);
         eval(evalCmd);
       } catch (err) {
         console.log("Error = " + err);
@@ -141,11 +150,16 @@ function runCmd() {
 
       console.log(document.getElementById('results').innerHTML);
 
-      if (retry || (document.getElementById('results').innerHTML == "undefined" && !args)) {
-        cmd = ".getAttribute('" + elem.slice(1) + "')";
-        evalCmd = "document.getElementById('results').innerHTML = " +
-          "document.getElementById('" + obj + "')" + cmd;
+      if (retry || (!document.getElementById('results').innerHTML && !args)) {
+        if (isstyle)
+          evalCmd = "document.getElementById('results').innerHTML = getComputedStyle(jsObj)" + elem ;
+        else {
+          cmd = ".getAttribute('" + elem.slice(1) + "')";     // remove leading dot
+          evalCmd = "document.getElementById('results').innerHTML = " +
+            "document.getElementById('" + obj + "')" + cmd;
+        }
         try {   // if attribute set by HTML we need to use getAttribute() instead of ".attribute" notation
+          console.log("evalCmd = " + evalCmd);
           eval(evalCmd);                                   // second try
         }
         catch (err) {                                      // show error if caught
@@ -155,13 +169,13 @@ function runCmd() {
     } else {                                              // no results display
       var evalCmd = "document.getElementById('" + obj + "')" + cmd;
       try {
+        console.log("evalCmd = " + evalCmd);
         eval(evalCmd);
       }
       catch (err) {
         alert("Syntaxfehler oder unbekannte Methode/Attribut!");
       }
     }
-    console.log("eval command = " + evalCmd);
   });
 }
 
