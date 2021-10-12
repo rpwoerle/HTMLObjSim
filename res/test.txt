@@ -1,0 +1,2 @@
+Absatz1.Wort2.style.fontWeight="bold";
+Ueberschrift1.style.color="green";
