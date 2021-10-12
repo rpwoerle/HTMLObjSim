@@ -1,32 +1,90 @@
 h1 {
-    color: orange;
+    color: darkblue;
   }
 
-  td {
-    padding: 5px 3px;
-  }
+table, th, td {
+  padding: 5px 3px;
+  border: 1px dotted grey;
+  border-collapse: collapse;
+}
 
-  .tipp {
-    color: black;
-    margin-top: 15px;
-    font: 12px arial;
-    display: none;
-  }
+.text {
+  font-size: 18px;
+  line-height: 130%;
+}
 
-  .extratipp {
-    color: black;
-    font: 12px courier;
-    display: none;
-  }
+.source {
+  font-size: 12px;
+}
 
-  .boxed {
-    border: solid 1px lightgrey;
-    padding: 3px;
-  }
+.tipp {
+  color: black;
+  margin-top: 15px;
+  font: 12px arial;
+  display: none;
+}
 
-  .tipplink {
-    cursor: pointer;
-    text-decoration-line: underline;
-    text-decoration-style: dotted;
-    font-style: italic;
-  }
+.extratipp {
+  color: black;
+  font: 12px courier;
+  display: none;
+}
+
+.boxed {
+  border: solid 1px lightgrey;
+  padding: 3px;
+}
+
+.boxed2 {
+  border: solid 1px black;
+  padding: 3px;
+}
+
+.tipplink {
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  font-style: italic;
+}
+  
+
+/* Tooltip container */
+.tooltip1 {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; *//* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip1 .tooltiptext1 {
+  visibility: hidden;
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -90px; /* Use half of the width (120/2 = 60), to center the tooltip */
+  background-color: lightblue;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip1:hover .tooltiptext1 {
+  visibility: visible;
+}
+
+.tooltip1 .tooltiptext1::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent lightblue transparent;
+}
