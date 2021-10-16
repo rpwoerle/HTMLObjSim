@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   loadStyle("../css/HTMLObjSim-7.css", reInit);
   loadStyle("../../common/codemirror-5.62.3/lib/codemirror.css", loadCodeMirror);
    
-  initFrame = document.getElementById("workFrame").innerHTML;
+  init();
   
 });
 
